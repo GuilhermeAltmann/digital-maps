@@ -5,17 +5,17 @@ namespace App\Pinterest\Presentation\Http\Request;
 
 use App\Shared\Presentation\Http\Request\AbstractRequest;
 
-class AddPinterestRequest extends AbstractRequest
+class CreatePinterestRequest extends AbstractRequest
 {
 
     public function rules(): array
     {
         return [
-            'name' => 'string',
+            'name' => 'string|required',
             'x' => 'numeric|required',
             'y' => 'numeric|required',
             'opened' => 'date_format:H:i',
-            'closed' => 'date_format:H:i',
+            'closed' => 'date_format:H:i|required_unless:opened,null',
         ];
     }
 
@@ -25,6 +25,11 @@ class AddPinterestRequest extends AbstractRequest
     }
 
     public function positionX(): int
+    {
+        return $this->input('x');
+    }
+
+    public function positionY(): int
     {
         return $this->input('x');
     }

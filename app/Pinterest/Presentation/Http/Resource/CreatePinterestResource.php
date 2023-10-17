@@ -5,7 +5,7 @@ namespace App\Pinterest\Presentation\Http\Resource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class AddPinterestResource extends JsonResource
+class CreatePinterestResource extends JsonResource
 {
     public function __construct(?array $response)
     {
