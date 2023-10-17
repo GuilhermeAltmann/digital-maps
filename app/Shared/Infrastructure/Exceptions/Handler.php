@@ -5,6 +5,7 @@ namespace App\Shared\Infrastructure\Exceptions;
 use App\Shared\Domain\DomainError;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Http\Response;
+use Illuminate\Validation\ValidationException;
 use InvalidArgumentException;
 use Throwable;
 
@@ -25,35 +26,35 @@ class Handler extends ExceptionHandler
      */
     public function register(): void
     {
-//        $this->reportable(function (Throwable $e) {
-//            if ($e instanceof DomainError) {
-//                return response()->json([
-//                    'status' => 'error',
-//                    'data' => [
-//                        'title' => $e->errorTitle(),
-//                        'message' => $e->errorMessage()
-//                    ]
-//                ], $e->errorCode());
-//            }
-//
-//            if ($e instanceof InvalidArgumentException) {
-//                return response()->json([
-//                    'status' => 'error',
-//                    'data' => [
-//                        'title' => $e->errorTitle(),
-//                        'message' => $e->errorMessage()
-//                    ]
-//                ], Response::HTTP_UNPROCESSABLE_ENTITY);
-//            }
-//
-//            return response()->json([
-//                'status' => 'error',
-//                'data' => [
-//                    'title' => $e->errorTitle(),
-//                    'message' => $e->errorMessage()
-//                ]
-//            ], Response::HTTP_INTERNAL_SERVER_ERROR);
-//        });
+
+        $this->renderable(function (Throwable $e) {
+
+            if ($e instanceof DomainError) {
+                return response()->json([
+                    'status' => 'error',
+                    'data' => [
+                        'title' => $e->errorTitle(),
+                        'message' => $e->errorMessage()
+                    ]
+                ], $e->errorCode());
+            }
+
+            if ($e instanceof InvalidArgumentException || $e instanceof ValidationException) {
+                return response()->json([
+                    'status' => 'error',
+                    'data' => [
+                        'message' => $e->getMessage()
+                    ]
+                ], Response::HTTP_UNPROCESSABLE_ENTITY);
+            }
+
+            return response()->json([
+                'status' => 'error',
+                'data' => [
+                    'message' => $e->getMessage()
+                ]
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        });
 
         $this->reportable(function (Throwable $e) {
 

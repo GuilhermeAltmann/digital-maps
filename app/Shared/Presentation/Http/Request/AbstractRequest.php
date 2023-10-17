@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Shared\Presentation\Http\Request;
+
 use Illuminate\Foundation\Http\FormRequest;
 
 abstract class AbstractRequest extends FormRequest
