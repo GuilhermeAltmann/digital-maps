@@ -14,21 +14,21 @@ class Pinterest
         private readonly Name $name,
         private readonly PositionX $positionX,
         private readonly PositionY $positionY,
-        private readonly ?Closed $closed = null,
-        private readonly ?Opened $opened = null
+        private readonly ?Opened $opened = null,
+        private readonly ?Closed $closed = null
     )
     {
     }
 
-    public function create(
+    public static function create(
         Name $name,
         PositionX $positionX,
         PositionY $positionY,
+        ?Opened $opened,
         ?Closed $closed,
-        ?Opened $opened
     ): Pinterest
     {
-        return new self($name, $positionX, $positionY, $closed, $opened);
+        return new self($name, $positionX, $positionY, $opened, $closed);
     }
 
     /**

@@ -8,8 +8,8 @@ class CreatePinterestCommand
         private readonly string $name,
         private readonly int $positionX,
         private readonly int $positionY,
-        private readonly string $opened,
-        private readonly string $closed,
+        private readonly ?string $opened,
+        private readonly ?string $closed,
 
     ) {
     }
@@ -39,17 +39,17 @@ class CreatePinterestCommand
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function opened(): string
+    public function opened(): ?string
     {
         return $this->opened;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function closed(): string
+    public function closed(): ?string
     {
         return $this->closed;
     }

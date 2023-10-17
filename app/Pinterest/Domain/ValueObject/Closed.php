@@ -2,10 +2,9 @@
 
 namespace App\Pinterest\Domain\ValueObject;
 
-use App\Shared\Domain\ValueObject\DateTimeValueObject;
 use DateTime;
 
-class Closed extends DateTimeValueObject
+class Closed extends OpeningHours
 {
     public static function create(DateTime $value): Closed
     {

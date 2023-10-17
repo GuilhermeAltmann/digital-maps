@@ -41,6 +41,6 @@ class CreatePinterestRequest extends AbstractRequest
 
     public function closed(): string
     {
-        return $this->input('opened');
+        return $this->input('closed');
     }
 }
