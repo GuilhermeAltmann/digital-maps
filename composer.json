@@ -33,6 +33,9 @@
         }
     },
     "scripts": {
+        "test": [
+            "vendor/bin/phpunit"
+        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
@@ -61,7 +64,6 @@
             "php-http/discovery": true
         }
     },
-    "test": "vendor/bin/phpunit",
     "minimum-stability": "stable",
     "prefer-stable": true
 }
