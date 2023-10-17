@@ -2,7 +2,9 @@
 
 namespace App\Pinterest\Domain\Repository;
 
+use App\Pinterest\Domain\Pinterest;
+
 interface CreatePinterestRepository
 {
-    public function createPinterest(): void;
+    public function createPinterest(Pinterest $p): void;
 }
