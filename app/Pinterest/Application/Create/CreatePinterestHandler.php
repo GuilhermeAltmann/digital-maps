@@ -2,7 +2,7 @@
 
 namespace App\Pinterest\Application\Create;
 
-class CreatePinteresHandler
+class CreatePinterestHandler
 {
 
 }
