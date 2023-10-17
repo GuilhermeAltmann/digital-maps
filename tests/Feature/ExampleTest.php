@@ -12,7 +12,13 @@ class ExampleTest extends TestCase
      */
     public function test_the_application_returns_a_successful_response(): void
     {
-        $response = $this->get('/');
+        $response = $this->post('api/v1/pinterest', [
+            'name' => "Restaurante",
+            'x' => 10,
+            'y' => 20,
+            'opened' => "21:00",
+            'closed' => "23:00",
+        ]);
 
         $response->assertStatus(200);
     }
