@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pinterest', function (Blueprint $table) {
+        Schema::create('pinterests', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->integer('x');
