@@ -16,10 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->integer('x');
             $table->integer('y');
-            $table->integer('opened_hours');
-            $table->integer('opened_minutes');
-            $table->integer('closed_hours');
-            $table->integer('closed_minutes');
+            $table->time('opened');
+            $table->time('closed');
             $table->timestamp('expires_at')->nullable();
             $table->timestamps();
         });
