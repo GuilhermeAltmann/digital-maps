@@ -10,7 +10,7 @@ class FindAllPinterestHandler
      {
      }
 
-     public function handle(): FindAllPinterestResponse
+     public function handle(FindAllPinterestCommand $command): FindAllPinterestResponse
      {
         return new FindAllPinterestResponse(($this->finder)());
      }

@@ -5,10 +5,11 @@ namespace App\Pinterest\Domain;
 use App\Pinterest\Domain\ValueObject\Closed;
 use App\Pinterest\Domain\ValueObject\Name;
 use App\Pinterest\Domain\ValueObject\Opened;
+use App\Pinterest\Domain\ValueObject\OpeningHours;
 use App\Pinterest\Domain\ValueObject\PositionX;
 use App\Pinterest\Domain\ValueObject\PositionY;
 
-class Pinterest
+class Pinterest implements \JsonSerializable
 {
     public function __construct(
         private readonly Name $name,
@@ -21,14 +22,23 @@ class Pinterest
     }
 
     public static function create(
-        Name $name,
-        PositionX $positionX,
-        PositionY $positionY,
-        ?Opened $opened,
-        ?Closed $closed,
+        string $name,
+        int $positionX,
+        int $positionY,
+        ?string $opened,
+        ?string $closed,
+        ?string $formatOpened = OpeningHours::DEFAULT_FORMAT,
+        ?string $formatClosed = OpeningHours::DEFAULT_FORMAT,
+
     ): Pinterest
     {
-        return new self($name, $positionX, $positionY, $opened, $closed);
+
+        return new self(Name::create($name),
+            PositionX::create($positionX),
+            PositionY::create($positionY),
+            \DateTime::createFromFormat($formatOpened, $opened) ? Opened::create(\DateTime::createFromFormat($formatOpened, $opened)) : null,
+            \DateTime::createFromFormat($formatClosed, $closed) ? Closed::create(\DateTime::createFromFormat($formatClosed, $closed)) : null
+        );
     }
 
     /**
@@ -69,5 +79,16 @@ class Pinterest
     public function closed(): ?Closed
     {
         return $this->closed;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'name' => $this->name(),
+            'x' => $this->positionX(),
+            'y' => $this->positionY(),
+            'opened' => $this->opened()?->defaultFormat(),
+            'closed' => $this->closed()?->defaultFormat(),
+        ];
     }
 }

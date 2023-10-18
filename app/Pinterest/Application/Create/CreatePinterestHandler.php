@@ -21,17 +21,18 @@ class CreatePinterestHandler
     {
 
         $pinterest = Pinterest::create(
-            Name::create($command->name()),
-            PositionX::create($command->positionX()),
-            PositionY::create($command->positionY()),
-            $command->opened() !== null ? Opened::create(\DateTime::createFromFormat(OpeningHours::DEFAULT_FORMAT, $command->opened())) : $command->opened(),
-            $command->closed() !== null ? Closed::create(\DateTime::createFromFormat(OpeningHours::DEFAULT_FORMAT, $command->closed())) : $command->closed()
+            $command->name(),
+            $command->positionX(),
+            $command->positionY(),
+            $command->opened(),
+            $command->closed()
         );
 
-        if($pinterest->opened()->value() >= $pinterest->closed()->value()){
-            throw new OpenedIsBiggerThanClosedException();
+        if($pinterest->opened() !== null){
+            if($pinterest->opened()->value() >= $pinterest->closed()->value()){
+                throw new OpenedIsBiggerThanClosedException();
+            }
         }
-
         ($this->pinterestCreator)($pinterest);
     }
 }

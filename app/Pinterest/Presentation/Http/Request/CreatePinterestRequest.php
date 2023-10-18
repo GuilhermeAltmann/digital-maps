@@ -31,15 +31,15 @@ class CreatePinterestRequest extends AbstractRequest
 
     public function positionY(): int
     {
-        return $this->input('x');
+        return $this->input('y');
     }
 
-    public function opened(): string
+    public function opened(): ?string
     {
         return $this->input('opened');
     }
 
-    public function closed(): string
+    public function closed(): ?string
     {
         return $this->input('closed');
     }

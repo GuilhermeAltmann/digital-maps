@@ -6,6 +6,7 @@ use App\Pinterest\Domain\PinterestCollection;
 use App\Pinterest\Domain\Repository\CreatePinterestRepository;
 use App\Pinterest\Domain\Repository\FindAllPinterestRepository;
 use App\Pinterest\Domain\ValueObject\OpeningHours;
+use App\Pinterest\Infrastructure\External\Mapper\PinterestCollectionMapper;
 use App\Pinterest\Infrastructure\External\Model\Pinterest;
 use App\Pinterest\Domain\Pinterest as PinterestEntity;
 
@@ -27,6 +28,6 @@ class PinterestRepository implements CreatePinterestRepository, FindAllPinterest
 
     public function findAllPinterest(): PinterestCollection
     {
-        return PinterestCollection::create(Pinterest::all()->toArray());
+        return PinterestCollectionMapper::map(Pinterest::all()->toArray());
     }
 }
