@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->integer('x');
             $table->integer('y');
-            $table->time('opened');
-            $table->time('closed');
+            $table->time('opened')->nullable();
+            $table->time('closed')->nullable();
             $table->timestamp('expires_at')->nullable();
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pinterest');
+        Schema::dropIfExists('pinterests');
     }
 };
