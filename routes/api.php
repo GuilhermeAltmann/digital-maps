@@ -2,6 +2,7 @@
 
 
 use App\Pinterest\Presentation\Http\Controller\CreatePinterestController;
+use App\Pinterest\Presentation\Http\Controller\FindAllPinterestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,5 +17,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('v1')->group(function(){
-   Route::post('pinterest', CreatePinterestController::class)->name('api.v1.pinterest');
+    Route::post('pinterest', CreatePinterestController::class)->name('api.v1.pinterest');
+    Route::get('pinterest', FindAllPinterestController::class)->name('api.v1.pinterest');
 });
