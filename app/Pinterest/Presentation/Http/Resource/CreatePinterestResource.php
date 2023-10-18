@@ -15,7 +15,7 @@ class CreatePinterestResource extends JsonResource
     public function toArray(Request $request)
     {
         return [
-            'success' => true
+            'save' => true
         ];
     }
 }
