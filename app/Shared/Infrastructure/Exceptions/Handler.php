@@ -18,7 +18,7 @@ class Handler extends ExceptionHandler
      */
     protected $dontReport = [
         DomainError::class,
-        InvalidArgumentException::class
+        InvalidArgumentException::class,
     ];
 
     /**
@@ -34,8 +34,8 @@ class Handler extends ExceptionHandler
                     'status' => 'error',
                     'data' => [
                         'title' => $e->errorTitle(),
-                        'message' => $e->errorMessage()
-                    ]
+                        'message' => $e->errorMessage(),
+                    ],
                 ], $e->errorCode());
             }
 
@@ -43,16 +43,16 @@ class Handler extends ExceptionHandler
                 return response()->json([
                     'status' => 'error',
                     'data' => [
-                        'message' => $e->getMessage()
-                    ]
+                        'message' => $e->getMessage(),
+                    ],
                 ], Response::HTTP_UNPROCESSABLE_ENTITY);
             }
 
             return response()->json([
                 'status' => 'error',
                 'data' => [
-                    'message' => $e->getMessage()
-                ]
+                    'message' => $e->getMessage(),
+                ],
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
         });
 

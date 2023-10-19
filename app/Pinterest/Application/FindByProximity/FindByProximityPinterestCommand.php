@@ -12,33 +12,21 @@ class FindByProximityPinterestCommand
     ) {
     }
 
-    /**
-     * @return int
-     */
     public function positionX(): int
     {
         return $this->positionX;
     }
 
-    /**
-     * @return int
-     */
     public function positionY(): int
     {
         return $this->positionY;
     }
 
-    /**
-     * @return string|null
-     */
     public function timeNow(): ?string
     {
         return $this->timeNow;
     }
 
-    /**
-     * @return int|null
-     */
     public function distance(): ?int
     {
         return $this->distance;

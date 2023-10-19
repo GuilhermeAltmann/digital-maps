@@ -23,6 +23,7 @@ class CreatePinterestController extends Controller
             $request->opened(),
             $request->closed(),
         ));
+
         return new CreatePinterestResource([]);
     }
 }

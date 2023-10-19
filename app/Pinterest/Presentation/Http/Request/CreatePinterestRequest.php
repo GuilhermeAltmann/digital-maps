@@ -2,12 +2,10 @@
 
 namespace App\Pinterest\Presentation\Http\Request;
 
-
 use App\Shared\Presentation\Http\Request\AbstractRequest;
 
 class CreatePinterestRequest extends AbstractRequest
 {
-
     public function rules(): array
     {
         return [

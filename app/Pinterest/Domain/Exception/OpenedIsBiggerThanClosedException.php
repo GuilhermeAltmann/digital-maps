@@ -6,7 +6,6 @@ use App\Shared\Domain\DomainError;
 
 class OpenedIsBiggerThanClosedException extends DomainError
 {
-
     public function errorCode(): int
     {
         return 422;
@@ -14,11 +13,11 @@ class OpenedIsBiggerThanClosedException extends DomainError
 
     public function errorMessage(): string
     {
-        return "Valor de fechamento maior que o de abertura";
+        return 'Valor de fechamento maior que o de abertura';
     }
 
     public function errorTitle(): string
     {
-        return "Horário de funcionamento inválido";
+        return 'Horário de funcionamento inválido';
     }
 }

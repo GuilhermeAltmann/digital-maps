@@ -11,8 +11,8 @@ abstract class PinterestCollectionMapper
     public static function map(?array $array): PinterestCollection
     {
         $collection = [];
-        if($array) {
-            foreach ($array as $data){
+        if ($array) {
+            foreach ($array as $data) {
                 $collection[] = Pinterest::create(
                     $data['name'],
                     $data['x'],
@@ -24,6 +24,7 @@ abstract class PinterestCollectionMapper
                 );
             }
         }
+
         return PinterestCollection::create($collection);
     }
 }

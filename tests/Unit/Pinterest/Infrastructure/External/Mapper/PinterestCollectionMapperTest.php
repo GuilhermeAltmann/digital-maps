@@ -14,8 +14,8 @@ class PinterestCollectionMapperTest extends TestCase
             'name' => 'teste',
             'x' => 12,
             'y' => 10,
-            'opened' => "12:00:00",
-            'closed' => "14:00:00"
+            'opened' => '12:00:00',
+            'closed' => '14:00:00',
         ]]);
 
         $this->assertInstanceOf(PinterestCollection::class, $pinterestCollection);
@@ -28,7 +28,7 @@ class PinterestCollectionMapperTest extends TestCase
             'x' => 12,
             'y' => 10,
             'opened' => null,
-            'closed' => null
+            'closed' => null,
         ]]);
 
         $this->assertInstanceOf(PinterestCollection::class, $pinterestCollection);

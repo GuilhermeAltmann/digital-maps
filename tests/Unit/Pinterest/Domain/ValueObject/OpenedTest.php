@@ -12,8 +12,8 @@ class OpenedTest extends TestCase
     public function test_should_return_opened(): void
     {
         $opened = Opened::create(new DateTime());
-        $this->assertInstanceOf(Opened::class,$opened);
-        $this->assertInstanceOf(OpeningHours::class,$opened);
+        $this->assertInstanceOf(Opened::class, $opened);
+        $this->assertInstanceOf(OpeningHours::class, $opened);
     }
 
     public function test_should_return_value(): void

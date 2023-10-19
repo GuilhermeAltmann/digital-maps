@@ -13,7 +13,7 @@ class OpenedIsBiggerThanClosedExceptionTest extends TestCase
         $exception = new OpenedIsBiggerThanClosedException();
         $this->assertInstanceOf(DomainError::class, $exception);
         $this->assertEquals(422, $exception->errorCode());
-        $this->assertEquals("Valor de fechamento maior que o de abertura", $exception->errorMessage());
-        $this->assertEquals("Horário de funcionamento inválido", $exception->errorTitle());
+        $this->assertEquals('Valor de fechamento maior que o de abertura', $exception->errorMessage());
+        $this->assertEquals('Horário de funcionamento inválido', $exception->errorTitle());
     }
 }

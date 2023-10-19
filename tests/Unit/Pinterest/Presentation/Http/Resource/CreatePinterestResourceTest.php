@@ -2,15 +2,10 @@
 
 namespace Unit\Pinterest\Presentation\Http\Resource;
 
-use App\Pinterest\Domain\Pinterest;
-use App\Pinterest\Domain\PinterestCollection;
 use App\Pinterest\Presentation\Http\Resource\CreatePinterestResource;
-use App\Pinterest\Presentation\Http\Resource\FindByProximityPinterestResource;
-use App\Pinterest\Presentation\Http\Response\FindAllPinterestResponse;
-use App\Pinterest\Presentation\Http\Response\FindByProximityPinterestResponse;
 use Illuminate\Http\Request;
-use Tests\TestCase;
 use Mockery;
+use Tests\TestCase;
 
 class CreatePinterestResourceTest extends TestCase
 {

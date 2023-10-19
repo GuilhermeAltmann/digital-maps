@@ -2,7 +2,6 @@
 
 namespace App\Pinterest\Presentation\Http\Resource;
 
-use App\Pinterest\Presentation\Http\Response\FindAllPinterestResponse;
 use App\Pinterest\Presentation\Http\Response\FindByProximityPinterestResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;

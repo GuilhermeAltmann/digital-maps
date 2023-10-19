@@ -2,7 +2,6 @@
 
 namespace App\Pinterest\Presentation\Http\Controller;
 
-
 use App\Pinterest\Application\FindByProximity\FindByProximityPinterestCommand;
 use App\Pinterest\Application\FindByProximity\FindByProximityPinterestHandler;
 use App\Pinterest\Presentation\Http\Request\FindByProximityPinterestRequest;
@@ -22,6 +21,7 @@ class FindByProximityPinterestController
             $request->hours(),
             $request->meters()
         ));
+
         return new FindByProximityPinterestResource($response);
     }
 }

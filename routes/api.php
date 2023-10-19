@@ -1,6 +1,5 @@
 <?php
 
-
 use App\Pinterest\Presentation\Http\Controller\CreatePinterestController;
 use App\Pinterest\Presentation\Http\Controller\FindAllPinterestController;
 use App\Pinterest\Presentation\Http\Controller\FindByProximityPinterestController;
@@ -21,7 +20,7 @@ Route::get('/', function () {
     return 'ok';
 });
 
-Route::prefix('v1')->group(function(){
+Route::prefix('v1')->group(function () {
     Route::post('pinterest', CreatePinterestController::class)->name('api.v1.pinterest');
     Route::get('pinterest', FindAllPinterestController::class)->name('api.v1.pinterest');
     Route::get('pinterestByProximity', FindByProximityPinterestController::class)->name('api.v1.pinterestByProximity');

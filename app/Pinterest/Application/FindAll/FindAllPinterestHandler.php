@@ -6,12 +6,12 @@ use App\Pinterest\Presentation\Http\Response\FindAllPinterestResponse;
 
 class FindAllPinterestHandler
 {
-     public function __construct(private readonly PinterestAllFinder $finder)
-     {
-     }
+    public function __construct(private readonly PinterestAllFinder $finder)
+    {
+    }
 
-     public function handle(FindAllPinterestCommand $command): FindAllPinterestResponse
-     {
+    public function handle(FindAllPinterestCommand $command): FindAllPinterestResponse
+    {
         return new FindAllPinterestResponse(($this->finder)());
-     }
+    }
 }

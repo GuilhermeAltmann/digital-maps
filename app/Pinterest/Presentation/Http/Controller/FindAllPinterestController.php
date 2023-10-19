@@ -10,7 +10,6 @@ use App\Shared\Presentation\Http\Controllers\Controller;
 
 class FindAllPinterestController extends Controller
 {
-
     public function __construct(private readonly FindAllPinterestHandler $handler)
     {
     }
@@ -18,6 +17,7 @@ class FindAllPinterestController extends Controller
     public function __invoke(FindAllPinterestRequest $request): FindAllPinterestResource
     {
         $response = $this->handler->handle(new FindAllPinterestCommand());
+
         return new FindAllPinterestResource($response);
     }
 }

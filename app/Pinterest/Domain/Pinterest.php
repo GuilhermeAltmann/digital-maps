@@ -17,21 +17,19 @@ class Pinterest implements \JsonSerializable
         private readonly PositionY $positionY,
         private readonly ?Opened $opened = null,
         private readonly ?Closed $closed = null
-    )
-    {
+    ) {
     }
 
     public static function create(
         string $name,
         int $positionX,
         int $positionY,
-        ?string $opened = null,
-        ?string $closed = null,
+        string $opened = null,
+        string $closed = null,
         ?string $formatOpened = OpeningHours::DEFAULT_FORMAT,
         ?string $formatClosed = OpeningHours::DEFAULT_FORMAT,
 
-    ): Pinterest
-    {
+    ): Pinterest {
 
         return new self(Name::create($name),
             PositionX::create($positionX),
@@ -41,41 +39,26 @@ class Pinterest implements \JsonSerializable
         );
     }
 
-    /**
-     * @return Name
-     */
     public function name(): Name
     {
         return $this->name;
     }
 
-    /**
-     * @return PositionX
-     */
     public function positionX(): PositionX
     {
         return $this->positionX;
     }
 
-    /**
-     * @return PositionY
-     */
     public function positionY(): PositionY
     {
         return $this->positionY;
     }
 
-    /**
-     * @return Opened|null
-     */
     public function opened(): ?Opened
     {
         return $this->opened;
     }
 
-    /**
-     * @return Closed|null
-     */
     public function closed(): ?Closed
     {
         return $this->closed;
