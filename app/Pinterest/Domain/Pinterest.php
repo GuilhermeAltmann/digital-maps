@@ -25,8 +25,8 @@ class Pinterest implements \JsonSerializable
         string $name,
         int $positionX,
         int $positionY,
-        ?string $opened,
-        ?string $closed,
+        ?string $opened = null,
+        ?string $closed = null,
         ?string $formatOpened = OpeningHours::DEFAULT_FORMAT,
         ?string $formatClosed = OpeningHours::DEFAULT_FORMAT,
 
