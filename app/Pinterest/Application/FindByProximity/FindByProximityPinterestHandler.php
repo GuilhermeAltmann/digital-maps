@@ -5,7 +5,6 @@ namespace App\Pinterest\Application\FindByProximity;
 use App\Pinterest\Application\Calculator\DistanceCalculator;
 use App\Pinterest\Application\FindAll\PinterestAllFinder;
 use App\Pinterest\Domain\Pinterest;
-use App\Pinterest\Domain\ValueObject\OpeningHours;
 use App\Pinterest\Domain\ValueObject\PositionX;
 use App\Pinterest\Domain\ValueObject\PositionY;
 use App\Pinterest\Presentation\Http\Response\FindByProximityPinterestResponse;
@@ -22,14 +21,6 @@ class FindByProximityPinterestHandler
     {
         $pinterestCollection = ($this->finder)();
         $pinterestCollectionFiltered = $pinterestCollection->filter(function (Pinterest $item) use ($command) {
-            if (! is_null($item->opened())) {
-                $now = \DateTime::createFromFormat(OpeningHours::DEFAULT_FORMAT, $command->timeNow());
-
-                if (! ($item->opened()->value() < $now && $item->closed()->value() > $now)) {
-                    return false;
-                }
-            }
-
             if (($this->distanceCalculator)(
                 $item->positionX(),
                 $item->positionY(),

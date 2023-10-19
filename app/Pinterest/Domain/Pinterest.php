@@ -64,6 +64,17 @@ class Pinterest implements \JsonSerializable
         return $this->closed;
     }
 
+    public function isOpened(\DateTime $time): bool
+    {
+        if (! is_null($this->opened())) {
+            if (! ($this->opened()->value() < $time && $this->closed()->value() > $time)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public function jsonSerialize()
     {
         return [

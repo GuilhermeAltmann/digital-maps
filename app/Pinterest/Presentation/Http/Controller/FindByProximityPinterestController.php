@@ -22,6 +22,6 @@ class FindByProximityPinterestController
             $request->meters()
         ));
 
-        return new FindByProximityPinterestResource($response);
+        return new FindByProximityPinterestResource($response, $request->hours());
     }
 }

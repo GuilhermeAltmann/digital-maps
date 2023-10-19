@@ -22,11 +22,9 @@ class FindByProximityPinterestResourceTest extends TestCase
 
         $request = Mockery::spy(Request::class);
 
-        $response = new FindByProximityPinterestResource($findByProximityPinterestResponse);
+        $response = new FindByProximityPinterestResource($findByProximityPinterestResponse, '12:00');
 
         $this->assertIsArray($response->toArray($request));
-        $this->assertEquals('name', $response->toArray($request)[0]->name()->value());
-        $this->assertEquals(1, $response->toArray($request)[0]->positionX()->value());
-        $this->assertEquals(2, $response->toArray($request)[0]->positionY()->value());
+        $this->assertEquals('aberto', $response->toArray($request)[0][1]);
     }
 }
