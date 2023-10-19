@@ -17,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return 'ok';
+});
+
 Route::prefix('v1')->group(function(){
     Route::post('pinterest', CreatePinterestController::class)->name('api.v1.pinterest');
     Route::get('pinterest', FindAllPinterestController::class)->name('api.v1.pinterest');
