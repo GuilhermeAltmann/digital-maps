@@ -8,13 +8,16 @@ use PHPUnit\Framework\TestCase;
 
 class PositionXTest extends TestCase
 {
-    /**
-     * A basic test example.
-     */
     public function test_should_return_position_x(): void
     {
-        $positionY = PositionX::create(2);
-        $this->assertInstanceOf(PositionX::class,$positionY);
-        $this->assertInstanceOf(IntValueObject::class,$positionY);
+        $positionX = PositionX::create(2);
+        $this->assertInstanceOf(PositionX::class,$positionX);
+        $this->assertInstanceOf(IntValueObject::class,$positionX);
+    }
+
+    public function test_should_return_value(): void
+    {
+        $positionX = PositionX::create(2);
+        $this->assertEquals(2, $positionX->value());
     }
 }

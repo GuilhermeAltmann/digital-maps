@@ -1,4 +1,3 @@
-`
 ## Sobre digital-maps
 
 A DigitalMaps é uma empresa especializada na produção de receptores GPS. A organização está empenhada em lançar um dispositivo que promete auxiliar pessoas
