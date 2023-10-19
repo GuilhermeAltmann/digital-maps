@@ -20,4 +20,17 @@ class PinterestCollectionMapperTest extends TestCase
 
         $this->assertInstanceOf(PinterestCollection::class, $pinterestCollection);
     }
+
+    public function test_without_opened_hours_should_return_pinterest_collection_(): void
+    {
+        $pinterestCollection = PinterestCollectionMapper::map([[
+            'name' => 'teste',
+            'x' => 12,
+            'y' => 10,
+            'opened' => null,
+            'closed' => null
+        ]]);
+
+        $this->assertInstanceOf(PinterestCollection::class, $pinterestCollection);
+    }
 }
