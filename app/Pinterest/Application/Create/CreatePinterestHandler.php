@@ -3,6 +3,7 @@
 namespace App\Pinterest\Application\Create;
 
 use App\Pinterest\Domain\Exception\OpenedIsBiggerThanClosedException;
+use App\Pinterest\Domain\Exception\PositionHasNegativeValueException;
 use App\Pinterest\Domain\Pinterest;
 
 class CreatePinterestHandler
@@ -21,6 +22,10 @@ class CreatePinterestHandler
             $command->opened(),
             $command->closed()
         );
+
+        if ($pinterest->positionX()->value() < 0 || $pinterest->positionY()->value() < 0) {
+            throw new PositionHasNegativeValueException();
+        }
 
         if ($pinterest->opened() !== null) {
             if ($pinterest->opened()->value() >= $pinterest->closed()->value()) {
