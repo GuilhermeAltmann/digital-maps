@@ -67,7 +67,7 @@ class Pinterest implements \JsonSerializable
     public function isOpened(\DateTime $time): bool
     {
         if (! is_null($this->opened())) {
-            if (! ($this->opened()->value() < $time && $this->closed()->value() > $time)) {
+            if (! ($this->opened()->value() <= $time && $this->closed()->value() >= $time)) {
                 return false;
             }
         }
