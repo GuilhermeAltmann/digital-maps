@@ -36,14 +36,19 @@ então basta fazer a cópia do `.env.example` para `.env`, dentro da pasta do pr
 cp .env.example .env
 ```
 
-## Migrations
-```
-docker exec -it app.digital-maps.dev php artisan migrate
-```
-
 ## Execução da api
 ```
 docker-compose up -d
+```
+
+## Instalando dependencias
+```
+docker exec -it app.digital-maps.dev composer install --prefer-dist --optimize-autoloader
+```
+
+## Migrations
+```
+docker exec -it app.digital-maps.dev php artisan migrate
 ```
 
 ## Execução de testes 
